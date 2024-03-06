@@ -1,5 +1,5 @@
 
-Apache Kafka is a distributed streaming platform that is designed to handle real-time data feeds and provide a scalable, fault-tolerant, and high-throughput messaging system. Kafka is widely used for building real-time data pipelines and streaming applications. It was originally developed by LinkedIn and later open-sourced as an Apache Software Foundation project.
+**Apache Kafka** is a **distributed streaming platform** that is designed to handle real-time data feeds and provide a scalable, fault-tolerant, and high-throughput messaging system. Kafka is widely used for building real-time data pipelines and streaming applications. It was originally developed by LinkedIn and later open-sourced as an Apache Software Foundation project.
 
 Here are some key concepts and components of Apache Kafka:
 
@@ -33,7 +33,7 @@ Here are some key concepts and components of Apache Kafka:
     -   Kafka uses Apache ZooKeeper for distributed coordination and management of the Kafka brokers.
     -   ZooKeeper is used for leader election, configuration management, and distributed synchronization.
 
-Windows Terminal Command
+#### Windows Terminal Command
 
 Start ZooKeeper
 >bin/zookeeper-server-start.sh config/zookeeper.properties
