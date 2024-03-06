@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Delivery Boy</title>
+
+<script>
+	
+	setInterval(()=>{
+		navigator.geolocation.getCurrentPosition((pos)=>{
+    console.log(pos)
+},(err)=>{})
+	},2000);
+	
+</script>
+	
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Delivery Boy</title>
+
+<script>
+	
+	setInterval(()=>{
+		navigator.geolocation.getCurrentPosition((pos)=>{
+    console.log(pos)
+    let co_ordinates = pos.coords;
+    let timeStamp = new Date(pos.timestamp).toString();
+    let lattitude = co_ordinates.latitude;
+    let longitude = co_ordinates.longitude;
+    console.log(lattitude,longitude,timeStamp);
+    console.log({"lattitude":lattitude,"longitude":longitude,"timeStamp":timeStamp});
+    
+    fetch('http://localhost:8080/location/update',{
+		method:"POST",
+		headers:{
+			'Content-type':'application/json'
+		},
+		body:JSON.stringify({"lattitude":lattitude,"longitude":longitude,"timeStamp":"123"})
+	}).then((promise)=>promise.json())
+	.then((data)=>{
+		console.log(data)
+	}).catch((error)=>{
+		console.log(error)
+	})
+    
+},(err)=>{
+    console.log(err);
+});
+	},2000);
+	
+</script>
+	
+</head>
+<body>
+
+</body>
+</html>

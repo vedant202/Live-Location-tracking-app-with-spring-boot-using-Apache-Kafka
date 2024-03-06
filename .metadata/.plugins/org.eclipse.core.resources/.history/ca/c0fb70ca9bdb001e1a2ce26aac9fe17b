@@ -1,0 +1,55 @@
+package com.deliveryBoy.app.Controller;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.deliveryBoy.app.Services.KafkaService;
+
+class ReqBody{
+	private long lattitude;
+	private long longitude;
+	private StringBuilder date;
+	public long getLattitude() {
+		return lattitude;
+	}
+	public void setLattitude(long lattitude) {
+		this.lattitude = lattitude;
+	}
+	public long getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(long longitude) {
+		this.longitude = longitude;
+	}
+	public StringBuilder getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = new StringBuilder(date);
+	}
+	
+	
+}
+
+
+@RestController
+@RequestMapping("/location")
+public class Controller {
+	@Autowired
+	private KafkaService kafkaService;
+	
+	@PostMapping("/update")
+	public ResponseEntity<?> updateController(@RequestBody Object Body){
+		System.out.println(Body);
+		
+		this.kafkaService.updateLocation("("+Math.round(Math.random()*1000)+","+Math.round(Math.random()*1000)+")");
+		return new ResponseEntity<>(Map.of("message","Location Updated"),HttpStatus.OK);
+	}
+}

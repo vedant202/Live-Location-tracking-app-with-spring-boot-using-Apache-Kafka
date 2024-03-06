@@ -1,0 +1,5 @@
+package com.EndUser;
+
+enum KafkaConstants {
+	UPDATE_LOCATION
+}
